@@ -1,3 +1,53 @@
-header {
-  font-size: 2rem;
+.header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &-tooltip {
+    height: 400px;
+    width: 100%;
+    background: rgba(rgb(0, 0, 0), 0.5);
+  }
+
+  &-title {
+    font-size: 8rem;
+    color: #00b0aa;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 8px;
+      background: #00b0aa;
+      flex-grow: 1;
+    }
+
+    strong {
+      color: #fff;
+      display: inline-block;
+      padding: 40px 30px;
+      color: #00b0aa;
+    }
+  }
+
+  p {
+    font-size: 5rem;
+    color: white;
+    padding-bottom: 50px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 4rem;
+    background: #00b0aa;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
 }

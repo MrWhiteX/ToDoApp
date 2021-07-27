@@ -1,24 +1,38 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addToDo, editToDo } from "../../actions/appActions";
 
-const AddToDo = (props) => {
-  const { content = "", id } = props;
+const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
   const [contentInput, setContentInput] = useState(content);
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-  };
 
   const handleChangeContent = (e) => {
     setContentInput(e.target.value);
   };
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    const contentObject = {
+      content: contentInput,
+      id,
+    };
+
+    id ? editToDo(contentObject) : addToDo(contentObject);
+
+    if (id) {
+      callback();
+    }
+  };
+
   return (
     <section className="addtodo row">
       <div className="col-12">
+        <h1>Lista rzeczy do zrobienia:</h1>
+
         <form onSubmit={handleOnSubmit}>
           <div>
             <label>
-              Treść zadania:
+              zadanie:
               <input
                 onChange={handleChangeContent}
                 type="text"
@@ -34,4 +48,11 @@ const AddToDo = (props) => {
   );
 };
 
-export default AddToDo;
+const connectActionsToProps = {
+  addToDo,
+  editToDo,
+};
+
+const AddToDoConsumer = connect(null, connectActionsToProps)(AddToDo);
+
+export default AddToDoConsumer;

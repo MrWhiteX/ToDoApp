@@ -4,7 +4,7 @@ export const DELETE_TODO = "DELETE_TODO";
 
 let nexToDoId = 0;
 
-const addToDo = ({ content }) => ({
+export const addToDo = ({ content }) => ({
   type: ADD_TODO,
   payload: {
     id: ++nexToDoId,
@@ -12,7 +12,7 @@ const addToDo = ({ content }) => ({
   },
 });
 
-const editToDo = ({ content, id }) => ({
+export const editToDo = ({ content, id }) => ({
   type: EDIT_TODO,
   payload: {
     content,
@@ -20,7 +20,7 @@ const editToDo = ({ content, id }) => ({
   },
 });
 
-const deleteToDo = (id) => ({
+export const deleteToDo = (id) => ({
   type: DELETE_TODO,
   payload: {
     id,
