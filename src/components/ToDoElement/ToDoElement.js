@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { deleteToDo } from "../../actions/appActions";
 import AddToDo from "../AddToDo/AddToDo";
 
-const ToDoElement = ({ content, id }) => {
+const ToDoElement = ({ deleteToDo, content, id }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
 
   const toggleElements = () => {
@@ -12,16 +14,29 @@ const ToDoElement = ({ content, id }) => {
     <AddToDo callback={toggleElements} content={content} id={id} />
   ) : (
     <>
-      <button onClick={toggleElements}>Edytuj</button>
+      <button className="main-btn" onClick={toggleElements}>
+        Edytuj
+      </button>
+      <button className="main-btn" type="submit" onClick={() => deleteToDo(id)}>
+        Usuń
+      </button>
     </>
   );
 
   return (
     <li>
-      <p>Zadanie: {content} </p>
+      <p>
+        <span style={{ marginRight: 20 }}>Czynność:</span> {content}{" "}
+      </p>
       {formOrButtonElement}
     </li>
   );
 };
 
-export default ToDoElement;
+const connectActionsToProps = {
+  deleteToDo,
+};
+
+const ToDoElementConsumer = connect(null, connectActionsToProps)(ToDoElement);
+
+export default ToDoElementConsumer;

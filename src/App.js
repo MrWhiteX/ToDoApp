@@ -17,8 +17,10 @@ function App() {
               <Header />
             </Route>
             <Route path="/list">
-              <AddToDo />
-              <ToDoList />
+              <div className="tooltip">
+                <AddToDo />
+                <ToDoList />
+              </div>
             </Route>
           </div>
         </div>
