@@ -27,21 +27,19 @@ const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
   return (
     <section className="addtodo row">
       <div className="col-12">
-        <h1>Lista rzeczy do zrobienia:</h1>
-
         <form onSubmit={handleOnSubmit}>
           <div>
-            <label>
-              zadanie:
-              <input
-                onChange={handleChangeContent}
-                type="text"
-                value={contentInput}
-                required
-              />
-            </label>
+            <input
+              onChange={handleChangeContent}
+              type="text"
+              value={contentInput}
+              required
+              placeholder="Co chcesz zrobić?"
+            />
           </div>
-          <button type="submit">{id ? "Edytuj" : "Dodaj"}</button>
+          <button className="main-btn" type="submit">
+            {id ? "Edytuj" : "Dodaj"}
+          </button>
         </form>
       </div>
     </section>

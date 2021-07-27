@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "styles/header";
 @import "styles/addtodo";
+@import "styles/todoelement";
 
 html {
   font-size: 10px;
@@ -14,4 +15,32 @@ body {
   height: 100%;
   background: url(./assets/bg.jpg) no-repeat;
   background-size: cover;
+}
+
+.tooltip {
+  width: 100%;
+  height: 100%;
+  background: rgba(rgb(0, 0, 0), 0.5);
+}
+
+.main-btn {
+  color: #ff6f47;
+  background: #f7fffe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 20px 10px;
+}
+
+.main-btn:hover {
+  background: #ff6f47;
+  color: white;
+}
+
+li {
+  font-size: 3rem;
+  padding-top: 5rem;
+  color: white;
 }
