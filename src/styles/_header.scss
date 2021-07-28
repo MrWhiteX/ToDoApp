@@ -1,4 +1,5 @@
 .header {
+  width: 100wv;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -9,45 +10,70 @@
     height: 400px;
     width: 100%;
     background: rgba(rgb(0, 0, 0), 0.5);
+    @media (min-width: 992px) {
+      height: 500px;
+    }
   }
 
   &-title {
-    font-size: 8rem;
     color: #00b0aa;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+
+    @media (min-width: 992px) {
+      font-size: 6rem;
+    }
 
     &::before,
     &::after {
       content: "";
       display: block;
-      height: 8px;
+      height: 3px;
       background: #00b0aa;
       flex-grow: 1;
+
+      @media (min-width: 992px) {
+        height: 6px;
+      }
     }
 
     strong {
       color: #fff;
       display: inline-block;
-      padding: 40px 30px;
+      padding: 10px 5px;
       color: #00b0aa;
+
+      @media (min-width: 992px) {
+        padding: 40px 30px;
+      }
     }
   }
 
   p {
-    font-size: 5rem;
+    font-size: 2rem;
     color: white;
-    padding-bottom: 50px;
+    padding: 60px 0;
+    line-height: 30px;
+    @media (min-width: 992px) {
+      line-height: 60px;
+      padding: 50px 0;
+      font-size: 4rem;
+    }
   }
 
   a {
     text-decoration: none;
     color: #fff;
-    font-size: 4rem;
+    font-size: 2rem;
     background: #00b0aa;
     padding: 10px 20px;
     border-radius: 50px;
+
+    @media (min-width: 992px) {
+      font-size: 3rem;
+    }
   }
 }

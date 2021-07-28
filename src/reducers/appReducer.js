@@ -4,6 +4,7 @@ export const appReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload];
+
     case EDIT_TODO:
       return state.map((currentStateElement) => {
         if (currentStateElement.id !== action.payload.id) {
@@ -21,8 +22,6 @@ export const appReducer = (state = [], action) => {
       );
 
     default:
-      console.warn(`Brak akcji ${action.type}`);
       return state;
   }
-  return state;
 };

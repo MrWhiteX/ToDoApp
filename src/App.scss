@@ -12,9 +12,15 @@ html {
 
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: url(./assets/bg.jpg) no-repeat;
+  background-position: center;
   background-size: cover;
+
+  @media (min-width: 992px) {
+    background-position: top;
+    height: 100%;
+  }
 }
 
 .tooltip {
@@ -30,8 +36,12 @@ body {
   transition: all 0.3s ease;
   border: none;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 20px 10px;
+
+  @media (min-width: 992px) {
+    padding: 10px 20px;
+  }
 }
 
 .main-btn:hover {

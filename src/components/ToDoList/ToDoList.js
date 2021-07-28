@@ -3,10 +3,8 @@ import { connect } from "react-redux";
 import ToDoElement from "../ToDoElement/ToDoElement";
 
 const ToDoList = ({ content, id }) => {
-  const contentElements = content.map((el, index) => (
-    <>
-      <ToDoElement key={index} {...el} />
-    </>
+  const contentElements = content.map((el) => (
+    <ToDoElement key={el.id} {...el} />
   ));
 
   return <ul>{contentElements}</ul>;

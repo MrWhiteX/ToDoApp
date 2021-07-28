@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="header container row">
-      <div className="col-12">
+    <header className="header row">
+      <div className="col-sm-12">
         <div className="header-tooltip">
           <h1 className="header-title">
             <strong>Planer Samochodowy</strong>
