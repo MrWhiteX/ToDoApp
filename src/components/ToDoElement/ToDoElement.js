@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteToDo } from "../../actions/appActions";
 import AddToDo from "../AddToDo/AddToDo";
 
-const ToDoElement = ({ deleteToDo, content, id }) => {
+const ToDoElement = ({ content, id }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
+
+  const dispatch = useDispatch();
 
   const toggleElements = () => {
     setIsVisibleForm((prev) => !prev);
@@ -18,7 +20,11 @@ const ToDoElement = ({ deleteToDo, content, id }) => {
         Edytuj
       </button>
 
-      <button className="main-btn" type="submit" onClick={() => deleteToDo(id)}>
+      <button
+        className="main-btn"
+        type="submit"
+        onClick={() => dispatch(deleteToDo(id))}
+      >
         Usuń
       </button>
     </>
@@ -35,10 +41,4 @@ const ToDoElement = ({ deleteToDo, content, id }) => {
   );
 };
 
-const connectActionsToProps = {
-  deleteToDo,
-};
-
-const ToDoElementConsumer = connect(null, connectActionsToProps)(ToDoElement);
-
-export default ToDoElementConsumer;
+export default ToDoElement;

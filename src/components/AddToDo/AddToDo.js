@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToDo, editToDo } from "../../actions/appActions";
 
-const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
+const AddToDo = ({ id, callback, content = "" }) => {
   const [contentInput, setContentInput] = useState(content);
+  const dispatch = useDispatch();
 
   const handleChangeContent = (e) => {
     setContentInput(e.target.value);
@@ -19,7 +19,7 @@ const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
       id,
     };
 
-    id ? editToDo(contentObject) : addToDo(contentObject);
+    id ? dispatch(editToDo(contentObject)) : dispatch(addToDo(contentObject));
 
     if (id) {
       callback();
@@ -48,11 +48,4 @@ const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
   );
 };
 
-const connectActionsToProps = {
-  addToDo,
-  editToDo,
-};
-
-const AddToDoConsumer = connect(null, connectActionsToProps)(AddToDo);
-
-export default AddToDoConsumer;
+export default AddToDo;
