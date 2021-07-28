@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { connect } from "react-redux";
 import { addToDo, editToDo } from "../../actions/appActions";
 
@@ -11,6 +12,7 @@ const AddToDo = ({ addToDo, editToDo, id, callback, content = "" }) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    setContentInput("");
 
     const contentObject = {
       content: contentInput,

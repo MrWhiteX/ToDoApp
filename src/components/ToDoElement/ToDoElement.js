@@ -17,6 +17,7 @@ const ToDoElement = ({ deleteToDo, content, id }) => {
       <button className="main-btn" onClick={toggleElements}>
         Edytuj
       </button>
+
       <button className="main-btn" type="submit" onClick={() => deleteToDo(id)}>
         Usuń
       </button>
@@ -28,6 +29,7 @@ const ToDoElement = ({ deleteToDo, content, id }) => {
       <p>
         <span style={{ marginRight: 20 }}>Czynność:</span> {content}{" "}
       </p>
+
       {formOrButtonElement}
     </li>
   );
