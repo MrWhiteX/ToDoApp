@@ -1,7 +1,8 @@
 import React from "react";
-import { Provider } from "react-redux";
-import store from "./store/store";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store, persistor } from "./store/store";
+import { PersistGate } from "redux-persist/integration/react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import AddToDo from "./components/AddToDo/AddToDo";
@@ -18,8 +19,10 @@ function App() {
             </Route>
             <Route path="/list">
               <div className="tooltip">
-                <AddToDo />
-                <ToDoList />
+                <PersistGate persistor={persistor}>
+                  <AddToDo />
+                  <ToDoList />
+                </PersistGate>
               </div>
             </Route>
           </div>
