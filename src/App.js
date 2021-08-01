@@ -6,7 +6,6 @@ import { PersistGate } from "redux-persist/integration/react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import AddToDo from "./components/AddToDo/AddToDo";
-import ToDoList from "./components/ToDoList/ToDoList";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
               <div className="tooltip">
                 <PersistGate persistor={persistor}>
                   <AddToDo />
-                  <ToDoList />
                 </PersistGate>
               </div>
             </Route>

@@ -4,10 +4,12 @@ export const DELETE_TODO = "DELETE_TODO";
 
 let nexToDoId = 0;
 
+const getId = () => `_${Math.random().toString(36).substr(2, 9)}`;
+
 export const addToDo = ({ content }) => ({
   type: ADD_TODO,
   payload: {
-    id: ++nexToDoId,
+    id: getId(),
     content,
   },
 });

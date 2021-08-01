@@ -8,7 +8,7 @@ const ToDoList = () => {
 
   const contentElements = content.map((el, index) => (
     <>
-      <ToDoElement key={index} {...el} />
+      <ToDoElement key={el.id} {...el} />
     </>
   ));
 

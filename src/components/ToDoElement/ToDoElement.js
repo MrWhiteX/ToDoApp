@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteToDo } from "../../actions/appActions";
-import AddToDo from "../AddToDo/AddToDo";
+import AddToDoForm from "../AddToDoForm/AddToDoForm";
 
 const ToDoElement = ({ content, id }) => {
   const [isVisibleForm, setIsVisibleForm] = useState(false);
@@ -13,7 +13,7 @@ const ToDoElement = ({ content, id }) => {
   };
 
   const formOrButtonElement = isVisibleForm ? (
-    <AddToDo callback={toggleElements} content={content} id={id} />
+    <AddToDoForm callback={toggleElements} content={content} id={id} />
   ) : (
     <>
       <button className="main-btn" onClick={toggleElements}>
